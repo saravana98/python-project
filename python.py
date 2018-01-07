@@ -29,7 +29,7 @@ class address(object):
 class customer(address):
     def detail(self,id2,ad2,ci2,zi2,cit2):
         self.addi=id2
-        con=cx_Oracle.connect("ruban/ruban@127.0.0.1/XE")
+        con=cx_Oracle.connect("saravana/saravana@122.0.0.1/XE")
         cur=con.cursor()
         sql = "insert into address VALUES('%s','%s','%s','%d','%s')" % (id2,ad2,ci2,zi2,cit2)
         cur.execute(sql)
@@ -89,7 +89,7 @@ class customer(address):
         else:
           print(" THANK YOU VISIT AGAIN .........................")
         cardno=str(input())
-        con=cx_Oracle.connect("ruban/ruban@127.0.0.1/XE")
+        con=cx_Oracle.connect("saravana/saravana@127.0.0.1/XE")
         cur=con.cursor()
         sql = "insert into cus VALUES('%s','%s','%s','%s','%s','%s','%s')" % (self.cusid,self.cusna,self.mobil,cardno,self.amo,card,self.addi)
         cur.execute(sql)
@@ -101,7 +101,7 @@ class account(customer,address):
     global idn
     print("ENTER THE CUSTOMER ID")
     idn=str(input())
-    con=cx_Oracle.connect("ruban/ruban@127.0.0.1/XE")
+    con=cx_Oracle.connect("saravana/saravana@122.0.0.1/XE")
     cur=con.cursor()
     sql = "select cusname from cus where cuid='%s'" % (idn)
     cur.execute(sql)
@@ -116,7 +116,7 @@ class account(customer,address):
       #hh=valu1[0]
       print("YOUR CURRENT BALANCE IS: ")
       print(valu1[0])
-      con=cx_Oracle.connect("ruban/ruban@127.0.0.1/XE")
+      con=cx_Oracle.connect("saravana/saravana@122.0.0.1/XE")
       cur=con.cursor()
       sql = "select cardt from cus where cuid='%s'" % (vv)
       cur.execute(sql)
@@ -178,7 +178,7 @@ class account(customer,address):
       print("YOUR CARD IS CHANGED TO PLATINUM")
       print(" ")
       card11="Platinum"
-    con=cx_Oracle.connect("ruban/ruban@127.0.0.1/XE")
+    con=cx_Oracle.connect("saravana/saravana@122.0.0.1/XE")
     cur=con.cursor()
     sql = "update cus set cardt='%s' where cuid='%s'" % (card11,idn)
     cur.execute(sql)
@@ -270,7 +270,7 @@ class modify():
     print("3-CITY")
     print("4-ZIPCODE")
     vv=str(input())
-    con=cx_Oracle.connect("ruban/ruban@127.0.0.1/XE")
+    con=cx_Oracle.connect("saravana/saravana@122.0.0.1/XE")
     cur=con.cursor()
     if vv=="1":
       print("ENTER THE NEW PHONE NUMBER")
@@ -330,7 +330,7 @@ class demo():
         print("DO YOU WANT TO VIEW REGULAR AND PREVILEGED CUSTOMERS OF OUR SHOP yes/no")
         yy1=str(input())
         if yy1=="yes":
-           con=cx_Oracle.connect("ruban/ruban@127.0.0.1/XE")
+           con=cx_Oracle.connect("saravana/saravana@122.0.0.1/XE")
            cur=con.cursor()
            dd1="REGULAR"
            a1="Gold"
